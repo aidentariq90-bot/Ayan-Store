@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayan Store - باقات IPTV</title>
+    <title>Ayan Store - أكواد IPTV للمباريات والأفلام</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body {
@@ -29,7 +29,7 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(212, 175, 55, 0.25);
             border-radius: 30px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         .explore-btn {
             background: #eec253;
@@ -44,10 +44,10 @@
         .logo-title { color: #eec253; font-weight: 800; font-size: 17px; }
         .logo-sub { color: #888; font-size: 8px; letter-spacing: 1px; }
 
-        /* شريط بطاقات السيرفرات السفلية التفاعلية */
+        /* شريط بطاقات السيرفرات */
         .cards-slider {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             width: 100%;
             max-width: 420px;
             overflow-x: auto;
@@ -58,8 +58,8 @@
         .cards-slider::-webkit-scrollbar { display: none; }
 
         .slider-card {
-            flex: 0 0 130px;
-            height: 80px;
+            flex: 0 0 110px;
+            height: 75px;
             background: rgba(20, 20, 25, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
@@ -84,7 +84,7 @@
             margin-bottom: 2px;
         }
         .slider-card .name {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: bold;
             color: #aaa;
         }
@@ -96,7 +96,7 @@
         .slider-card.active .name { color: #eec253; }
         .slider-card.active .sub-tag { color: #eec253; }
 
-        /* الكارت الرئيسي المتغير */
+        /* الكارت الرئيسي */
         .main-card {
             width: 100%;
             max-width: 420px;
@@ -120,7 +120,7 @@
         }
 
         .server-title {
-            font-size: 34px;
+            font-size: 32px;
             font-weight: 900;
             color: #f1c85d;
             letter-spacing: 1px;
@@ -155,7 +155,7 @@
         .price-card:active { transform: scale(0.97); }
 
         .duration { font-size: 14px; color: #ffffff; font-weight: 600; margin-bottom: 8px; }
-        .amount { font-size: 22px; color: #f1c85d; font-weight: 800; }
+        .amount { font-size: 20px; color: #f1c85d; font-weight: 800; }
         .currency { font-size: 11px; color: #888; font-weight: normal; margin-right: 2px; }
 
         .tag-best {
@@ -175,37 +175,42 @@
 
     <!-- الشريط العلوي -->
     <div class="top-header">
-        <a href="https://wa.me/+9647731354565" class="explore-btn" target="_blank">استكشف الآن</a>
+        <a href="https://wa.me/+9647731354565?text=مرحباً%20Ayan%20Store،%20أريد%20الاستفسار%20عن%20الاشتراكات" class="explore-btn" target="_blank">استكشف الآن</a>
         <div class="logo-box">
             <div class="logo-title">Ayan Store</div>
-            <div class="logo-sub">AYAN • PREMIUM ENTERTAINMENT</div>
+            <div class="logo-sub">AYAN • PREMIUM IPTV</div>
         </div>
     </div>
 
-    <!-- بطاقات التبديل المنسدلة -->
+    <!-- شريط تنقل السيرفرات الأربعة -->
     <div class="cards-slider">
-        <div class="slider-card active" onclick="switchServer('Am live', this)">
+        <div class="slider-card active" onclick="switchServer('am', this)">
             <span class="num">01</span>
-            <span class="sub-tag">RECOMMENDED</span>
-            <span class="name">MAX TV PRO</span>
+            <span class="sub-tag">LIVE MATCHES</span>
+            <span class="name">am live</span>
         </div>
-        <div class="slider-card" onclick="switchServer('Tiger ott', this)">
+        <div class="slider-card" onclick="switchServer('plume', this)">
             <span class="num">02</span>
-            <span class="sub-tag">ULTRA HD</span>
-            <span class="name">TOP 4K</span>
+            <span class="sub-tag">ULTRA 4K</span>
+            <span class="name">Plume4k</span>
         </div>
-        <div class="slider-card" onclick="switchServer('one4k', this)">
+        <div class="slider-card" onclick="switchServer('one', this)">
             <span class="num">03</span>
-            <span class="sub-tag">VIP SERVER</span>
-            <span class="name">ULTRA HD</span>
+            <span class="sub-tag">CINEMA VIP</span>
+            <span class="name">One4k</span>
+        </div>
+        <div class="slider-card" onclick="switchServer('tiger', this)">
+            <span class="num">04</span>
+            <span class="sub-tag">OTT SERVER</span>
+            <span class="name">Tiger ott</span>
         </div>
     </div>
 
-    <!-- البطاقة الرئيسية -->
+    <!-- البطاقة الرئيسية المعروضة -->
     <div class="main-card">
-        <div class="badge-recommended" id="s-badge">RECOMMENDED</div>
-        <h1 class="server-title" id="s-title">Am live </h1>
-        <p class="server-desc" id="s-desc">ثبات قوي وقائمة متنوعة من الأفلام والمسلسلات مع دعم كامل للأجهزة المختلفة.</p>
+        <div class="badge-recommended" id="s-badge">POPULAR SERVER</div>
+        <h1 class="server-title" id="s-title">am live</h1>
+        <p class="server-desc" id="s-desc">سيرفر مخصص للمباريات المباشرة والأفلام والمسلسلات بثبات عالي وبدون تقطيع.</p>
 
         <!-- شبكة الأسعار -->
         <div class="pricing-grid">
@@ -221,39 +226,45 @@
 
             <a id="link-6" href="#" class="price-card" target="_blank">
                 <div class="duration">6 أشهر</div>
-                <div class="amount" id="p-6">18,000 <span class="currency">د.ع</span></div>
+                <div class="amount" id="p-6">20,000 <span class="currency">د.ع</span></div>
             </a>
 
             <a id="link-12" href="#" class="price-card" target="_blank">
                 <span class="tag-best">أفضل قيمة</span>
                 <div class="duration">سنة كاملة</div>
-                <div class="amount" id="p-12">30,000 <span class="currency">د.ع</span></div>
+                <div class="amount" id="p-12">35,000 <span class="currency">د.ع</span></div>
             </a>
         </div>
     </div>
 
     <script>
-        // ضع رقم الواتساب الخاص بك هنا
+        // ضع رقم الواتساب الخاص بك هنا بدلاً من 9647xxxxxxxx
         const whatsappNumber = "+9647731354565";
 
         const servers = {
-            max: {
-                badge: "RECOMMENDED",
-                title: "AM LIVE ",
-                desc: "ثبات قوي وقائمة متنوعة من الأفلام والمسلسلات مع دعم كامل للأجهزة المختلفة.",
+            am: {
+                badge: "POPULAR SERVER",
+                title: "am live",
+                desc: "سيرفر مخصص للمباريات المباشرة والأفلام والمسلسلات بثبات عالي وبدون تقطيع.",
                 prices: ["5,000", "10,000", "15,000", "20,000"]
             },
-            top: {
+            plume: {
                 badge: "ULTRA HD 4K",
-                title: "Tiger ott",
-                desc: "سيرفر فاخر بجودة عالية وبث مباشر بدون تقطيع للمباريات والأحداث الرياضية.",
+                title: "Plume4k",
+                desc: "أعلى جودة للبث المباشر والأفلام برزلوشن 4K حقيقي، ممتاز للشاشات الكبيرة.",
                 prices: ["5,000", "10,000", "15,000", "20,000"]
             },
-            ultra: {
-                badge: "VIP SERVER",
+            one: {
+                badge: "CINEMA & SPORTS",
                 title: "One4k",
-                desc: "اشتراك اقتصادي ممتاز يضم جميع القنوات والمسلسلات بجودة ممتازة.",
-                prices: ["5,000", "10,000", "15,000", "20,000"]
+                desc: "سيرفر شامل يضم أحدث مكتبات الأفلام والمسلسلات اليومية مع جميع قنوات الرياضة.",
+                prices: ["6,000", "10,000", "15,000", "20,000"]
+            },
+            tiger: {
+                badge: "STABLE OTT",
+                title: "Tiger ott",
+                desc: "سيرفر تايجر الشهير بقوة الثبات في أوقات الذروة والمباريات الحاسمة.",
+                prices: ["5,000", "10,000", "18,000", "25,000"]
             }
         };
 
@@ -271,14 +282,14 @@
             document.getElementById('p-6').innerHTML = `${item.prices[2]} <span class="currency">د.ع</span>`;
             document.getElementById('p-12').innerHTML = `${item.prices[3]} <span class="currency">د.ع</span>`;
 
-            document.getElementById('link-1').href = `https://wa.me/${whatsappNumber}?text=طلب%20اشتراك%20${item.title}%20شهر`;
-            document.getElementById('link-3').href = `https://wa.me/${whatsappNumber}?text=طلب%20اشتراك%20${item.title}%203%20أشهر`;
-            document.getElementById('link-6').href = `https://wa.me/${whatsappNumber}?text=طلب%20اشتراك%20${item.title}%206%20أشهر`;
-            document.getElementById('link-12').href = `https://wa.me/${whatsappNumber}?text=طلب%20اشتراك%20${item.title}%20سنة`;
+            document.getElementById('link-1').href = `https://wa.me/${whatsappNumber}?text=طلب%20كود%20اشتراك%20${item.title}%20لمدة%20شهر`;
+            document.getElementById('link-3').href = `https://wa.me/${whatsappNumber}?text=طلب%20كود%20اشتراك%20${item.title}%20لمدة%203%20أشهر`;
+            document.getElementById('link-6').href = `https://wa.me/${whatsappNumber}?text=طلب%20كود%20اشتراك%20${item.title}%20لمدة%206%20أشهر`;
+            document.getElementById('link-12').href = `https://wa.me/${whatsappNumber}?text=طلب%20كود%20اشتراك%20${item.title}%20لمدة%20سنة`;
         }
 
-        // تفعيل الخيار الأول عند التحميل
-        switchServer('AM live', document.querySelector('.slider-card'));
+        // تفعيل سيرفر am live تلقائياً عند فتح الموقع
+        switchServer('am', document.querySelector('.slider-card'));
     </script>
 </body>
 </html>
