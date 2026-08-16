@@ -4,24 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayan Store - متجر أيان</title>
+    <!-- مكتبة أيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-        body { background: #0a0a0c; color: #fff; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
-        .card { background: rgba(25, 25, 30, 0.85); border: 1px solid #d4af37; border-radius: 20px; padding: 30px; max-width: 400px; width: 100%; text-align: center; }
-        h1 { color: #d4af37; font-size: 28px; margin-bottom: 10px; }
-        .btn-whatsapp { display: block; width: 100%; padding: 15px; background: #25D366; color: #fff; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 20px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body {
+            background: #0a0a0c;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 15px;
+        }
+        .card {
+            background: rgba(25, 25, 30, 0.85);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 35px 20px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            color: #d4af37;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        p.desc {
+            color: #cccccc;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        .features {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 15px 20px;
+            text-align: right;
+            margin-bottom: 25px;
+            list-style: none;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .features li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+        .features li:last-child { margin-bottom: 0; }
+        .features li i {
+            color: #d4af37;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 15px;
+            background: #25D366;
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.2s, background 0.2s;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            background: #20ba5a;
+        }
+        .btn-telegram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px;
+            background: #0088cc;
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+        }
+        .social-title {
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .social-icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            background: #d4af37;
+            color: #000;
+            border-color: #d4af37;
+        }
     </style>
 </head>
 <body>
+
     <div class="card">
+        <span class="badge">VIP ENTERTAINMENT</span>
         <h1>Ayan Store</h1>
-        <p>اشتراكات IPTV بأعلى جودة وثبات.</p>
+        <div class="subtitle">متجــر أيــان للاشتراكــات الرقميــة</div>
         
-        <!-- هنا ضع رقمك -->
-        <a href="https://wa.me+/9647731354565" class="btn-whatsapp">
-            <i class="fa-brands fa-whatsap"></i> اشترك الآن عبر واتساب
+        <p class="desc">
+            عالمك الترفيهي بين يديك. بث مباشر لجميع المباريات والأفلام والمسلسلات بدون تقطيع وبأعلى جودة.
+        </p>
+
+        <ul class="features">
+            <li><i class="fa-solid fa-check"></i> جودة فائقة 4K / Full HD / HD</li>
+            <li><i class="fa-solid fa-check"></i> ثبات ممتاز أثناء المباريات الكبيرة</li>
+            <li><i class="fa-solid fa-check"></i> دعم جميع الأجهزة (شاشات، جوالات، TV Box)</li>
+            <li><i class="fa-solid fa-check"></i> مكتبة أفلام ومسلسلات متجددة يومياً</li>
+            <li><i class="fa-solid fa-check"></i> تفعيل فوري ودعم فني متواصل</li>
+        </ul>
+
+        <!-- زر الواتساب للطلب -->
+        <a href="https://wa.me/+9647731354565?text=مرحباً،%20أريد%20الاستفسار%20عن%20اشتراكات%20Ayan%20Store" class="btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> الطلب عبر الواتساب
         </a>
+
+        <!-- زر قناة التلجرام -->
+        <a href="https://t.me/your_telegram_channel" class="btn-telegram" target="_blank">
+            <i class="fa-brands fa-telegram"></i> قناة التلجرام للعروض
+        </a>
+
+        <!-- أيقونات شبكات التواصل الاجتماعي -->
+        <div class="social-title">تابعنا على وسائل التواصل الاجتماعي</div>
+        <div class="social-links">
+            <a href="https://wa.me/9665xxxxxxxx" class="social-icon" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://t.me/your_username" class="social-icon" target="_blank" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="https://instagram.com/your_username" class="social-icon" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://tiktok.com/@your_username" class="social-icon" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
     </div>
+
 </body>
 </html>
