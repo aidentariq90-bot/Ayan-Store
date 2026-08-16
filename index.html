@@ -4,113 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayan Store - باقات IPTV</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body {
-            background-color: #08080a;
+            background-color: #050507;
             color: #ffffff;
             min-height: 100vh;
-            padding: 15px;
+            padding: 15px 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-x: hidden;
         }
 
-        /* الشريط العلوي ثابت */
+        /* الشريط العلوي */
         .top-header {
             width: 100%;
             max-width: 420px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 15px;
-            background: rgba(20, 20, 25, 0.8);
+            padding: 8px 12px;
+            background: rgba(18, 18, 22, 0.7);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.25);
             border-radius: 30px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         .explore-btn {
-            background: #d4af37;
+            background: #eec253;
             color: #000;
-            padding: 6px 16px;
+            padding: 8px 18px;
             border-radius: 20px;
             text-decoration: none;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: bold;
         }
-        .logo-container { text-align: left; }
-        .logo-title { color: #d4af37; font-weight: bold; font-size: 16px; }
+        .logo-box { text-align: left; }
+        .logo-title { color: #eec253; font-weight: 800; font-size: 17px; }
         .logo-sub { color: #888; font-size: 8px; letter-spacing: 1px; }
 
-        /* شريط تنقل السيرفرات افقي */
-        .slider-nav {
+        /* شريط بطاقات السيرفرات السفلية التفاعلية */
+        .cards-slider {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             width: 100%;
             max-width: 420px;
             overflow-x: auto;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
+            padding: 5px 5px 15px 5px;
+            margin-bottom: 10px;
+            scrollbar-width: none;
         }
-        .slider-nav::-webkit-scrollbar { display: none; }
-        .nav-item {
-            flex: 0 0 auto;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 10px 20px;
-            text-align: center;
-            font-size: 12px;
-            color: #888;
-        }
-        .nav-item.active {
-            border-color: #d4af37;
-            color: #d4af37;
-            background: rgba(212, 175, 55, 0.1);
-        }
+        .cards-slider::-webkit-scrollbar { display: none; }
 
-        /* كارت العرض الرئيسي */
+        .slider-card {
+            flex: 0 0 130px;
+            height: 80px;
+            background: rgba(20, 20, 25, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .slider-card .num {
+            position: absolute;
+            top: 5px;
+            left: 8px;
+            font-size: 9px;
+            color: #555;
+        }
+        .slider-card .sub-tag {
+            font-size: 8px;
+            color: #666;
+            margin-bottom: 2px;
+        }
+        .slider-card .name {
+            font-size: 13px;
+            font-weight: bold;
+            color: #aaa;
+        }
+        .slider-card.active {
+            border-color: #eec253;
+            box-shadow: 0 0 15px rgba(238, 194, 83, 0.2);
+            background: rgba(238, 194, 83, 0.05);
+        }
+        .slider-card.active .name { color: #eec253; }
+        .slider-card.active .sub-tag { color: #eec253; }
+
+        /* الكارت الرئيسي المتغير */
         .main-card {
             width: 100%;
             max-width: 420px;
-            background: radial-gradient(circle at top, rgba(212, 175, 55, 0.15) 0%, rgba(15, 15, 20, 0.95) 70%);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            border-radius: 25px;
+            background: radial-gradient(circle at top, rgba(238, 194, 83, 0.12) 0%, rgba(12, 12, 16, 0.98) 70%);
+            border: 1px solid rgba(238, 194, 83, 0.35);
+            border-radius: 30px;
             padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
         }
 
         .badge-recommended {
             display: inline-block;
-            border: 1px solid #d4af37;
-            color: #d4af37;
-            padding: 3px 15px;
-            border-radius: 15px;
+            border: 1px solid rgba(238, 194, 83, 0.6);
+            color: #eec253;
+            padding: 4px 18px;
+            border-radius: 20px;
             font-size: 10px;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
         }
 
         .server-title {
-            font-size: 32px;
+            font-size: 34px;
             font-weight: 900;
-            color: #eec253;
+            color: #f1c85d;
             letter-spacing: 1px;
             margin-bottom: 15px;
         }
 
         .server-desc {
-            color: #ccc;
+            color: #b5b5b5;
             font-size: 13px;
-            line-height: 1.7;
+            line-height: 1.8;
             margin-bottom: 30px;
             padding: 0 10px;
         }
 
-        /* شبكة أسعار الاشتراكات */
+        /* شبكة كروت الأسعار */
         .pricing-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -118,34 +143,31 @@
         }
 
         .price-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 15px;
-            padding: 15px 10px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(238, 194, 83, 0.25);
+            border-radius: 18px;
+            padding: 18px 10px;
             text-decoration: none;
             color: #fff;
             position: relative;
-            transition: 0.3s;
+            transition: all 0.2s ease;
         }
-        .price-card:hover {
-            border-color: #d4af37;
-            background: rgba(212, 175, 55, 0.1);
-        }
+        .price-card:active { transform: scale(0.97); }
 
-        .duration { font-size: 13px; color: #fff; font-weight: bold; margin-bottom: 8px; }
-        .amount { font-size: 20px; color: #eec253; font-weight: bold; }
-        .currency { font-size: 10px; color: #aaa; margin-right: 3px; }
+        .duration { font-size: 14px; color: #ffffff; font-weight: 600; margin-bottom: 8px; }
+        .amount { font-size: 22px; color: #f1c85d; font-weight: 800; }
+        .currency { font-size: 11px; color: #888; font-weight: normal; margin-right: 2px; }
 
         .tag-best {
             position: absolute;
-            top: -8px;
-            right: 10px;
-            background: #d4af37;
+            top: -10px;
+            right: 12px;
+            background: #f1c85d;
             color: #000;
-            font-size: 8px;
+            font-size: 9px;
             font-weight: bold;
-            padding: 2px 8px;
-            border-radius: 8px;
+            padding: 2px 10px;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -154,51 +176,109 @@
     <!-- الشريط العلوي -->
     <div class="top-header">
         <a href="https://wa.me/+9647731354565" class="explore-btn" target="_blank">استكشف الآن</a>
-        <div class="logo-container">
+        <div class="logo-box">
             <div class="logo-title">Ayan Store</div>
             <div class="logo-sub">AYAN • PREMIUM ENTERTAINMENT</div>
         </div>
     </div>
 
-    <!-- شريط تنقل السيرفرات -->
-    <div class="slider-nav">
-        <div class="nav-item active">MAX TV PRO</div>
-        <div class="nav-item">TOP 4K</div>
-        <div class="nav-item">ULTRA HD</div>
-    </div>
-
-    <!-- بطاقة العرض الرئيسية -->
-    <div class="main-card">
-        <div class="badge-recommended">RECOMMENDED</div>
-        <h1 class="server-title">MAX TV PRO</h1>
-        <p class="server-desc">ثبات قوي وقائمة متنوعة من الأفلام والمسلسلات مع دعم كامل للأجهزة المختلفة.</p>
-
-        <!-- كروت الأسعار -->
-        <div class="pricing-grid">
-            
-            <a href="https://wa.me/+9647731354565?text=أريد%20اشتراك%20MAX%20TV%20PRO%20لمدة%20شهر" class="price-card" target="_blank">
-                <div class="duration">شهر</div>
-                <div class="amount">5,000 <span class="currency">د.ع</span></div>
-            </a>
-
-            <a href="https://wa.me/+9647731354565?text=أريد%20اشتراك%20MAX%20TV%20PRO%20لمدة%203%20أشهر" class="price-card" target="_blank">
-                <div class="duration">3 أشهر</div>
-                <div class="amount">10,000 <span class="currency">د.ع</span></div>
-            </a>
-
-            <a href="https://wa.me/+9647731354565?text=أريد%20اشتراك%20MAX%20TV%20PRO%20لمدة%206%20أشهر" class="price-card" target="_blank">
-                <div class="duration">6 أشهر</div>
-                <div class="amount">18,000 <span class="currency">د.ع</span></div>
-            </a>
-
-            <a href="https://wa.me/+9647731354565?text=أريد%20اشتراك%20MAX%20TV%20PRO%20لمدة%20سنة" class="price-card" target="_blank">
-                <span class="tag-best">أفضل قيمة</span>
-                <div class="duration">سنة كاملة</div>
-                <div class="amount">30,000 <span class="currency">د.ع</span></div>
-            </a>
-
+    <!-- بطاقات التبديل المنسدلة -->
+    <div class="cards-slider">
+        <div class="slider-card active" onclick="switchServer('Am live', this)">
+            <span class="num">01</span>
+            <span class="sub-tag">RECOMMENDED</span>
+            <span class="name">MAX TV PRO</span>
+        </div>
+        <div class="slider-card" onclick="switchServer('Tiger ott', this)">
+            <span class="num">02</span>
+            <span class="sub-tag">ULTRA HD</span>
+            <span class="name">TOP 4K</span>
+        </div>
+        <div class="slider-card" onclick="switchServer('one4k', this)">
+            <span class="num">03</span>
+            <span class="sub-tag">VIP SERVER</span>
+            <span class="name">ULTRA HD</span>
         </div>
     </div>
 
+    <!-- البطاقة الرئيسية -->
+    <div class="main-card">
+        <div class="badge-recommended" id="s-badge">RECOMMENDED</div>
+        <h1 class="server-title" id="s-title">Am live </h1>
+        <p class="server-desc" id="s-desc">ثبات قوي وقائمة متنوعة من الأفلام والمسلسلات مع دعم كامل للأجهزة المختلفة.</p>
+
+        <!-- شبكة الأسعار -->
+        <div class="pricing-grid">
+            <a id="link-1" href="#" class="price-card" target="_blank">
+                <div class="duration">شهر</div>
+                <div class="amount" id="p-1">5,000 <span class="currency">د.ع</span></div>
+            </a>
+
+            <a id="link-3" href="#" class="price-card" target="_blank">
+                <div class="duration">3 أشهر</div>
+                <div class="amount" id="p-3">10,000 <span class="currency">د.ع</span></div>
+            </a>
+
+            <a id="link-6" href="#" class="price-card" target="_blank">
+                <div class="duration">6 أشهر</div>
+                <div class="amount" id="p-6">18,000 <span class="currency">د.ع</span></div>
+            </a>
+
+            <a id="link-12" href="#" class="price-card" target="_blank">
+                <span class="tag-best">أفضل قيمة</span>
+                <div class="duration">سنة كاملة</div>
+                <div class="amount" id="p-12">30,000 <span class="currency">د.ع</span></div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // ضع رقم الواتساب الخاص بك هنا
+        const whatsappNumber = "+9647731354565";
+
+        const servers = {
+            max: {
+                badge: "RECOMMENDED",
+                title: "AM LIVE ",
+                desc: "ثبات قوي وقائمة متنوعة من الأفلام والمسلسلات مع دعم كامل للأجهزة المختلفة.",
+                prices: ["5,000", "10,000", "15,000", "20,000"]
+            },
+            top: {
+                badge: "ULTRA HD 4K",
+                title: "Tiger ott",
+                desc: "سيرفر فاخر بجودة عالية وبث مباشر بدون تقطيع للمباريات والأحداث الرياضية.",
+                prices: ["5,000", "10,000", "15,000", "20,000"]
+            },
+            ultra: {
+                badge: "VIP SERVER",
+                title: "One4k",
+                desc: "اشتراك اقتصادي ممتاز يضم جميع القنوات والمسلسلات بجودة ممتازة.",
+                prices: ["5,000", "10,000", "15,000", "20,000"]
+            }
+        };
+
+        function switchServer(key, element) {
+            document.querySelectorAll('.slider-card').forEach(card => card.classList.remove('active'));
+            element.classList.add('active');
+
+            const item = servers[key];
+            document.getElementById('s-badge').innerText = item.badge;
+            document.getElementById('s-title').innerText = item.title;
+            document.getElementById('s-desc').innerText = item.desc;
+
+            document.getElementById('p-1').innerHTML = `${item.prices[0]} <span class="currency">د.ع</span>`;
+            document.getElementById('p-3').innerHTML = `${item.prices[1]} <span class="currency">د.ع</span>`;
+            document.getElementById('p-6').innerHTML = `${item.prices[2]} <span class="currency">د.ع</span>`;
+            document.getElementById('p-12').innerHTML = `${item.prices[3]} <span class="currency">د.ع</span>`;
+
+            document.getElementById('link-1').href = `https://wa.me/${whatsappNumber}?text=طلب%20اشتراك%20${item.title}%20شهر`;
+            document.getElementById('link-3').href = `https://wa.me/${whatsappNumber}?text=طلب%20اشتراك%20${item.title}%203%20أشهر`;
+            document.getElementById('link-6').href = `https://wa.me/${whatsappNumber}?text=طلب%20اشتراك%20${item.title}%206%20أشهر`;
+            document.getElementById('link-12').href = `https://wa.me/${whatsappNumber}?text=طلب%20اشتراك%20${item.title}%20سنة`;
+        }
+
+        // تفعيل الخيار الأول عند التحميل
+        switchServer('AM live', document.querySelector('.slider-card'));
+    </script>
 </body>
 </html>
