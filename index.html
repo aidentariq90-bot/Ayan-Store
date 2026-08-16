@@ -3,188 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayan Store - متجر أيان</title>
-    <!-- مكتبة أيقونات FontAwesome -->
+    <title>Ayan Store - باقات IPTV</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body {
-            background: #0a0a0c;
-            color: #fff;
+            background-color: #08080a;
+            color: #ffffff;
             min-height: 100vh;
+            padding: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 20px 15px;
         }
-        .card {
-            background: rgba(25, 25, 30, 0.85);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 35px 20px;
-            max-width: 420px;
+
+        /* الشريط العلوي ثابت */
+        .top-header {
             width: 100%;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-        }
-        .badge {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.15);
-            color: #d4af37;
-            border: 1px solid #d4af37;
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        h1 {
-            color: #ffffff;
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-        .subtitle {
-            color: #d4af37;
-            font-size: 13px;
-            letter-spacing: 2px;
+            max-width: 420px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: rgba(20, 20, 25, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 30px;
             margin-bottom: 20px;
         }
-        p.desc {
-            color: #cccccc;
-            font-size: 14px;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-        .features {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            padding: 15px 20px;
-            text-align: right;
-            margin-bottom: 25px;
-            list-style: none;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .features li {
-            margin-bottom: 10px;
-            font-size: 14px;
-            color: #e0e0e0;
-            display: flex;
-            align-items: center;
-        }
-        .features li:last-child { margin-bottom: 0; }
-        .features li i {
-            color: #d4af37;
-            margin-left: 10px;
-            font-size: 14px;
-        }
-        .btn-whatsapp {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 15px;
-            background: #25D366;
-            color: #fff;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            transition: transform 0.2s, background 0.2s;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-        }
-        .btn-whatsapp:hover {
-            transform: translateY(-2px);
-            background: #20ba5a;
-        }
-        .btn-telegram {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 14px;
-            background: #0088cc;
-            color: #fff;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 15px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
-        }
-        .social-title {
-            color: #888;
-            font-size: 12px;
-            margin-bottom: 12px;
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        .social-icon {
-            width: 42px;
-            height: 42px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            transition: all 0.3s ease;
-        }
-        .social-icon:hover {
+        .explore-btn {
             background: #d4af37;
             color: #000;
+            padding: 6px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .logo-container { text-align: left; }
+        .logo-title { color: #d4af37; font-weight: bold; font-size: 16px; }
+        .logo-sub { color: #888; font-size: 8px; letter-spacing: 1px; }
+
+        /* شريط تنقل السيرفرات افقي */
+        .slider-nav {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            max-width: 420px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .slider-nav::-webkit-scrollbar { display: none; }
+        .nav-item {
+            flex: 0 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+        .nav-item.active {
             border-color: #d4af37;
+            color: #d4af37;
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* كارت العرض الرئيسي */
+        .main-card {
+            width: 100%;
+            max-width: 420px;
+            background: radial-gradient(circle at top, rgba(212, 175, 55, 0.15) 0%, rgba(15, 15, 20, 0.95) 70%);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 25px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .badge-recommended {
+            display: inline-block;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 3px 15px;
+            border-radius: 15px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .server-title {
+            font-size: 32px;
+            font-weight: 900;
+            color: #eec253;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .server-desc {
+            color: #ccc;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+
+        /* شبكة أسعار الاشتراكات */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .price-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            padding: 15px 10px;
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+            transition: 0.3s;
+        }
+        .price-card:hover {
+            border-color: #d4af37;
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .duration { font-size: 13px; color: #fff; font-weight: bold; margin-bottom: 8px; }
+        .amount { font-size: 20px; color: #eec253; font-weight: bold; }
+        .currency { font-size: 10px; color: #aaa; margin-right: 3px; }
+
+        .tag-best {
+            position: absolute;
+            top: -8px;
+            right: 10px;
+            background: #d4af37;
+            color: #000;
+            font-size: 8px;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <span class="badge">VIP ENTERTAINMENT</span>
-        <h1>Ayan Store</h1>
-        <div class="subtitle">متجــر أيــان للاشتراكــات الرقميــة</div>
-        
-        <p class="desc">
-            عالمك الترفيهي بين يديك. بث مباشر لجميع المباريات والأفلام والمسلسلات بدون تقطيع وبأعلى جودة.
-        </p>
+    <!-- الشريط العلوي -->
+    <div class="top-header">
+        <a href="https://wa.me/+9647731354565" class="explore-btn" target="_blank">استكشف الآن</a>
+        <div class="logo-container">
+            <div class="logo-title">Ayan Store</div>
+            <div class="logo-sub">AYAN • PREMIUM ENTERTAINMENT</div>
+        </div>
+    </div>
 
-        <ul class="features">
-            <li><i class="fa-solid fa-check"></i> جودة فائقة 4K / Full HD / HD</li>
-            <li><i class="fa-solid fa-check"></i> ثبات ممتاز أثناء المباريات الكبيرة</li>
-            <li><i class="fa-solid fa-check"></i> دعم جميع الأجهزة (شاشات، جوالات، TV Box)</li>
-            <li><i class="fa-solid fa-check"></i> مكتبة أفلام ومسلسلات متجددة يومياً</li>
-            <li><i class="fa-solid fa-check"></i> تفعيل فوري ودعم فني متواصل</li>
-        </ul>
+    <!-- شريط تنقل السيرفرات -->
+    <div class="slider-nav">
+        <div class="nav-item active">MAX TV PRO</div>
+        <div class="nav-item">TOP 4K</div>
+        <div class="nav-item">ULTRA HD</div>
+    </div>
 
-        <!-- زر الواتساب للطلب -->
-        <a href="https://wa.me/+9647731354565?text=مرحباً،%20أريد%20الاستفسار%20عن%20اشتراكات%20Ayan%20Store" class="btn-whatsapp" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i> الطلب عبر الواتساب
-        </a>
+    <!-- بطاقة العرض الرئيسية -->
+    <div class="main-card">
+        <div class="badge-recommended">RECOMMENDED</div>
+        <h1 class="server-title">MAX TV PRO</h1>
+        <p class="server-desc">ثبات قوي وقائمة متنوعة من الأفلام والمسلسلات مع دعم كامل للأجهزة المختلفة.</p>
 
-        <!-- زر قناة التلجرام -->
-        <a href="https://t.me/your_telegram_channel" class="btn-telegram" target="_blank">
-            <i class="fa-brands fa-telegram"></i> قناة التلجرام للعروض
-        </a>
+        <!-- كروت الأسعار -->
+        <div class="pricing-grid">
+            
+            <a href="https://wa.me/+9647731354565?text=أريد%20اشتراك%20MAX%20TV%20PRO%20لمدة%20شهر" class="price-card" target="_blank">
+                <div class="duration">شهر</div>
+                <div class="amount">5,000 <span class="currency">د.ع</span></div>
+            </a>
 
-        <!-- أيقونات شبكات التواصل الاجتماعي -->
-        <div class="social-title">تابعنا على وسائل التواصل الاجتماعي</div>
-        <div class="social-links">
-            <a href="https://wa.me/9665xxxxxxxx" class="social-icon" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://t.me/your_username" class="social-icon" target="_blank" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
-            <a href="https://instagram.com/your_username" class="social-icon" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://tiktok.com/@your_username" class="social-icon" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://wa.me/+9647731354565?text=أريد%20اشتراك%20MAX%20TV%20PRO%20لمدة%203%20أشهر" class="price-card" target="_blank">
+                <div class="duration">3 أشهر</div>
+                <div class="amount">10,000 <span class="currency">د.ع</span></div>
+            </a>
+
+            <a href="https://wa.me/+9647731354565?text=أريد%20اشتراك%20MAX%20TV%20PRO%20لمدة%206%20أشهر" class="price-card" target="_blank">
+                <div class="duration">6 أشهر</div>
+                <div class="amount">18,000 <span class="currency">د.ع</span></div>
+            </a>
+
+            <a href="https://wa.me/+9647731354564?text=أريد%20اشتراك%20MAX%20TV%20PRO%20لمدة%20سنة" class="price-card" target="_blank">
+                <span class="tag-best">أفضل قيمة</span>
+                <div class="duration">سنة كاملة</div>
+                <div class="amount">30,000 <span class="currency">د.ع</span></div>
+            </a>
+
         </div>
     </div>
 
