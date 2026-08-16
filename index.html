@@ -3,479 +3,386 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayan Store - اكواد واشتراكات IPTV</title>
-    <!-- خط Tajawal من Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
-    <!-- أيقونات Font Awesome -->
+    <title>Ayan Store | موزع معتمد لبيع أكواد IPTV</title>
+
+    <!-- خط Cairo وروموز FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --primary-color: #3b82f6;
-            --primary-hover: #2563eb;
-            --whatsapp-color: #22c55e;
-            --whatsapp-hover: #16a34a;
-            --text-color: #f8fafc;
+            --bg-color: #0b0f19;
+            --card-bg: #161f30;
+            --accent-color: #2563eb;
+            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --whatsapp-color: #25D366;
+            --whatsapp-hover: #1da851;
+            --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --accent-color: #f59e0b;
+            --border-color: #1e293b;
+            --gold-color: #f59e0b;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Cairo', sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-main);
             line-height: 1.6;
-            padding-bottom: 60px;
+            padding-bottom: 80px;
         }
 
-        /* الهيدر والعنوان */
+        /* Header Section */
         header {
-            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+            background: linear-gradient(180deg, #111827 0%, var(--bg-color) 100%);
+            padding: 40px 20px;
             text-align: center;
-            padding: 50px 20px;
-            border-bottom: 1px solid #334155;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        header .logo-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+        .store-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(37, 99, 235, 0.15);
+            color: #60a5fa;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
         }
 
         header h1 {
             font-size: 2.8rem;
-            font-weight: 900;
-            color: #ffffff;
-            letter-spacing: 1px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         header p {
             color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-top: 8px;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
+        /* Container & Grid Layout */
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
-        /* أقسام السيرفرات */
-        .server-section {
-            margin-top: 50px;
-        }
-
-        .server-title {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.8rem;
-            color: #ffffff;
-            margin-bottom: 25px;
-            border-right: 5px solid var(--primary-color);
-            padding-right: 15px;
-        }
-
-        .server-title i {
-            color: var(--accent-color);
-        }
-
-        /* شبكة الكروت */
-        .plans-grid {
+        .servers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 25px;
         }
 
-        /* كرت الباقة */
-        .plan-card {
-            background-color: var(--card-bg);
+        /* Server Card Styles */
+        .server-card {
+            background: var(--card-bg);
             border-radius: 16px;
-            padding: 30px 20px;
-            text-align: center;
-            border: 1px solid #334155;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            border: 1px solid var(--border-color);
+            padding: 25px;
             display: flex;
             flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .server-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(37, 99, 235, 0.2);
+            border-color: #2563eb;
+        }
+
+        .server-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .server-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+        }
+
+        .server-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        /* Pricing Options List */
+        .pricing-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .price-item {
+            display: flex;
             justify-content: space-between;
-        }
-
-        .plan-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary-color);
-            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.2);
-        }
-
-        .plan-badge {
-            position: absolute;
-            top: 15px;
-            left: -35px;
-            background: var(--accent-color);
-            color: #000;
-            font-weight: bold;
-            font-size: 0.8rem;
-            padding: 4px 35px;
-            transform: rotate(-45deg);
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .duration {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-
-        .price {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .price span {
-            font-size: 1rem;
-            color: var(--text-muted);
-            font-weight: normal;
-        }
-
-        .features {
-            list-style: none;
-            margin-bottom: 25px;
-            text-align: right;
-            padding: 0 10px;
-        }
-
-        .features li {
-            margin-bottom: 10px;
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .features li i {
-            color: var(--whatsapp-color);
+        .duration i {
+            color: var(--accent-color);
+            font-size: 0.85rem;
         }
 
-        /* زر الواتساب */
-        .btn-whatsapp {
+        .price {
+            font-weight: 700;
+            color: #38bdf8;
+            font-size: 1.05rem;
+        }
+
+        /* Order Button */
+        .btn-order {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
             background-color: var(--whatsapp-color);
-            color: #ffffff;
+            color: white;
             text-decoration: none;
-            padding: 12px 20px;
+            padding: 12px;
             border-radius: 10px;
             font-weight: 700;
-            font-size: 1.1rem;
-            transition: background 0.3s ease;
+            font-size: 1rem;
+            transition: background-color 0.2s ease;
             width: 100%;
         }
 
-        .btn-whatsapp:hover {
+        .btn-order:hover {
             background-color: var(--whatsapp-hover);
         }
 
-        /* زر تواصل مباشر ثابت في أسفل الشاشة */
+        /* Floating WhatsApp Button */
         .floating-whatsapp {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
+            bottom: 25px;
+            left: 25px;
             background-color: var(--whatsapp-color);
             color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 30px;
+            gap: 10px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.4);
             z-index: 1000;
-            text-decoration: none;
-            transition: transform 0.3s;
+            transition: transform 0.2s ease;
         }
 
         .floating-whatsapp:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
-        /* الفوتر */
+        .floating-whatsapp i {
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            margin-top: 70px;
-            padding-top: 30px;
-            border-top: 1px solid #334155;
+            padding: 30px 20px;
             color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
         }
 
-        footer p {
-            font-size: 1rem;
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.1rem; }
+            .container { padding: 0 15px; }
+            .floating-whatsapp span { display: none; }
+            .floating-whatsapp {
+                padding: 15px;
+                border-radius: 50%;
+                left: 20px;
+                bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر الرئيسي -->
+    <!-- Header Section -->
     <header>
-        <i class="fa-solid fa-tv logo-icon"></i>
+        <div class="store-badge">
+            <i class="fa-solid fa-circle-check"></i>
+            موزع معتمد لبيع أكواد IPTV
+        </div>
         <h1>Ayan Store</h1>
-        <p>متجركم الأول لأفضل اشتراكات وسيرفرات IPTV عالية الجودة بدون تقطيع</p>
+        <p>أفضل سيرفرات القنوات والمباريات والأفلام بأعلى جودة وبأقل الأسعار</p>
     </header>
 
+    <!-- Main Content Container -->
     <div class="container">
+        <div class="servers-grid">
 
-        <!-- ================== سيرفر AM Live ================== -->
-        <div class="server-section">
-            <h2 class="server-title"><i class="fa-solid fa-bolt"></i> سيرفر AM Live</h2>
-            <div class="plans-grid">
-                
-                <div class="plan-card">
-                    <div>
-                        <div class="duration">اشتراك 1 شهر</div>
-                        <div class="price">5,000 <span>د.ع</span></div>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> ثبات ممتاز وبدون تقطيع</li>
-                            <li><i class="fa-solid fa-check"></i> يضم كامل القنوات الرياضية</li>
-                            <li><i class="fa-solid fa-check"></i> مكتبة أفلام ومسلسلات حديثة</li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn-whatsapp" onclick="sendOrder('AM Live', '1 شهر', '5,000 د.ع')">
-                        <i class="fa-brands fa-whatsapp"></i> طلب الآن
-                    </a>
+            <!-- Am Live Server -->
+            <div class="server-card">
+                <div class="server-header">
+                    <div class="server-icon"><i class="fa-solid fa-tv"></i></div>
+                    <div class="server-title">سيرفر Am Live</div>
                 </div>
-
-                <div class="plan-card">
-                    <div class="plan-badge">الأكثر طلباً</div>
-                    <div>
-                        <div class="duration">اشتراك 3 أشهر</div>
-                        <div class="price">10,000 <span>د.ع</span></div>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> ثبات ممتاز وبدون تقطيع</li>
-                            <li><i class="fa-solid fa-check"></i> يضم كامل القنوات الرياضية</li>
-                            <li><i class="fa-solid fa-check"></i> مكتبة أفلام ومسلسلات حديثة</li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn-whatsapp" onclick="sendOrder('AM Live', '3 أشهر', '10,000 د.ع')">
-                        <i class="fa-brands fa-whatsapp"></i> طلب الآن
-                    </a>
-                </div>
-
-                <div class="plan-card">
-                    <div>
-                        <div class="duration">اشتراك 6 أشهر</div>
-                        <div class="price">20,000 <span>د.ع</span></div>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> ثبات ممتاز وبدون تقطيع</li>
-                            <li><i class="fa-solid fa-check"></i> يضم كامل القنوات الرياضية</li>
-                            <li><i class="fa-solid fa-check"></i> مكتبة أفلام ومسلسلات حديثة</li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn-whatsapp" onclick="sendOrder('AM Live', '6 أشهر', '20,000 د.ع')">
-                        <i class="fa-brands fa-whatsapp"></i> طلب الآن
-                    </a>
-                </div>
-
+                <ul class="pricing-list">
+                    <li class="price-item">
+                        <span class="duration"><i class="fa-solid fa-clock"></i> شهر</span>
+                        <span class="price">5,000 د.ع</span>
+                    </li>
+                    <li class="price-item">
+                        <span class="duration"><i class="fa-solid fa-clock"></i> 3 أشهر</span>
+                        <span class="price">10,000 د.ع</span>
+                    </li>
+                    <li class="price-item">
+                        <span class="duration"><i class="fa-solid fa-clock"></i> 6 أشهر</span>
+                        <span class="price">15,000 د.ع</span>
+                    </li>
+                    <li class="price-item">
+                        <span class="duration"><i class="fa-solid fa-clock"></i> سنة كاملة</span>
+                        <span class="price">20,000 د.ع</span>
+                    </li>
+                </ul>
+                <a href="https://wa.me/+9647731354565?text=مرحباً،%20أريد%20الاشتراك%20في%20سيرفر%20Am%20Live" class="btn-order" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> اطلب الآن عبر الواتساب
+                </a>
             </div>
-        </div>
 
-        <!-- ================== سيرفر One4K ================== -->
-        <div class="server-section">
-            <h2 class="server-title"><i class="fa-solid fa-fire"></i> سيرفر One4K</h2>
-            <div class="plans-grid">
-                
-                <div class="plan-card">
-                    <div>
-                        <div class="duration">اشتراك 1 شهر</div>
-                        <div class="price">5,000 <span>د.ع</span></div>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> جودة فائقة 4K Real</li>
-                            <li><i class="fa-solid fa-check"></i> سيرفرات سريعة جداً</li>
-                            <li><i class="fa-solid fa-check"></i> تحديثات يومية للمكتبة</li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn-whatsapp" onclick="sendOrder('One4K', '1 شهر', '5,000 د.ع')">
-                        <i class="fa-brands fa-whatsapp"></i> طلب الآن
-                    </a>
+            <!-- One4k Server -->
+            <div class="server-card">
+                <div class="server-header">
+                    <div class="server-icon"><i class="fa-solid fa-film"></i></div>
+                    <div class="server-title">سيرفر One4k</div>
                 </div>
-
-                <div class="plan-card">
-                    <div>
-                        <div class="duration">اشتراك 3 أشهر</div>
-                        <div class="price">10,000 <span>د.ع</span></div>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> جودة فائقة 4K Real</li>
-                            <li><i class="fa-solid fa-check"></i> سيرفرات سريعة جداً</li>
-                            <li><i class="fa-solid fa-check"></i> تحديثات يومية للمكتبة</li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn-whatsapp" onclick="sendOrder('One4K', '3 أشهر', '10,000 د.ع')">
-                        <i class="fa-brands fa-whatsapp"></i> طلب الآن
-                    </a>
-                </div>
-
-                <div class="plan-card">
-                    <div>
-                        <div class="duration">اشتراك 6 أشهر</div>
-                        <div class="price">20,000 <span>د.ع</span></div>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> جودة فائقة 4K Real</li>
-                            <li><i class="fa-solid fa-check"></i> سيرفرات سريعة جداً</li>
-                            <li><i class="fa-solid fa-check"></i> تحديثات يومية للمكتبة</li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn-whatsapp" onclick="sendOrder('One4K', '6 أشهر', '20,000 د.ع')">
-                        <i class="fa-brands fa-whatsapp"></i> طلب الآن
-                    </a>
-                </div>
-
+                <ul class="pricing-list">
+                    <li class="price-item">
+                        <span class="duration"><i class="fa-solid fa-clock"></i> شهر</span>
+                        <span class="price">5,000 د.ع</span>
+                    </li>
+                    <li class="price-item">
+                        <span class="duration"><i class="fa-solid fa-clock"></i> 3 أشهر</span>
+                        <span class="price">10,000 د.ع</span>
+                    </li>
+                    <li class="price-item">
+                        <span class="duration"><i class="fa-solid fa-clock"></i> 6 أشهر</span>
+                        <span class="price">15,000 د.ع</span>
+                    </li>
+                    <li class="price-item">
+                        <span class="duration"><i class="fa-solid fa-clock"></i> سنة كاملة</span>
+                        <span class="price">20,000 د.ع</span>
+                    </li>
+                </ul>
+                <a href="https://wa.me/+9647731354565?text=مرحباً،%20أريد%20الاشتراك%20في%20سيرفر%20One4k" class="btn-order" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> اطلب الآن عبر الواتساب
+                </a>
             </div>
-        </div>
 
-        <!-- ================== سيرفر Plume4K ================== -->
-        <div class="server-section">
-            <h2 class="server-title"><i class="fa-solid fa-feather"></i> سيرفر Plume4K</h2>
-            <div class="plans-grid">
-                
-                <div class="plan-card">
-                    <div>
-                        <div class="duration">اشتراك 1 شهر</div>
-                        <div class="price">5,000 <span>د.ع</span></div>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> استقرار تام أثناء المباريات</li>
-                            <li><i class="fa-solid fa-check"></i> تدعم جميع الأجهزة والشاشات</li>
-                            <li><i class="fa-solid fa-check"></i> دعم فني طوال فترة الاشتراك</li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn-whatsapp" onclick="sendOrder('Plume4K', '1 شهر', '5,000 د.ع')">
-                        <i class="fa-brands fa-whatsapp"></i> طلب الآن
-                    </a>
+            <!-- Tiger OTT Server -->
+            <div class="server-card">
+                <div class="server-header">
+                    <div class="server-icon"><i class="fa-solid fa-play"></i></div>
+                    <div class="server-title">سيرفر Tiger OTT</div>
                 </div>
-
-                <div class="plan-card">
-                    <div>
-                        <div class="duration">اشتراك 3 أشهر</div>
-                        <div class="price">10,000 <span>د.ع</span></div>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> استقرار تام أثناء المباريات</li>
-                            <li><i class="fa-solid fa-check"></i> تدعم جميع الأجهزة والشاشات</li>
-                            <li><i class="fa-solid fa-check"></i> دعم فني طوال فترة الاشتراك</li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn-whatsapp" onclick="sendOrder('Plume4K', '3 أشهر', '10,000 د.ع')">
-                        <i class="fa-brands fa-whatsapp"></i> طلب الآن
-                    </a>
-                </div>
-
-                <div class="plan-card">
-                    <div>
-                        <div class="duration">اشتراك 6 أشهر</div>
-                        <div class="price">20,000 <span>د.ع</span></div>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> استقرار تام أثناء المباريات</li>
-                            <li><i class="fa-solid fa-check"></i> تدعم جميع الأجهزة والشاشات</li>
-                            <li><i class="fa-solid fa-check"></i> دعم فني طوال فترة الاشتراك</li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn-whatsapp" onclick="sendOrder('Plume4K', '6 أشهر', '20,000 د.ع')">
-                        <i class="fa-brands fa-whatsapp"></i> طلب الآن
-                    </a>
-                </div>
-
+                <ul class="pricing-list">
+                    <li class="price-item">
+                        <span class="duration"><i class="fa-solid fa-clock"></i> شهر</span>
+                        <span class="price">5,000 د.ع</span>
+                    </li>
+                    <li class="price-item">
+                        <span class="duration"><i class="fa-solid fa-clock"></i> 3 أشهر</span>
+                        <span class="price">10,000 د.ع</span>
+                    </li>
+                    <li class="price-item">
+                        <span class="duration"><i class="fa-solid fa-clock"></i> 6 أشهر</span>
+                        <span class="price">15,000 د.ع</span>
+                    </li>
+                    <li class="price-item">
+                        <span class="duration"><i class="fa-solid fa-clock"></i> سنة كاملة</span>
+                        <span class="price">20,000 د.ع</span>
+                    </li>
+                </ul>
+                <a href="https://wa.me/+9647731354565?text=مرحباً،%20أريد%20الاشتراك%20في%20سيرفر%20Tiger%20OTT" class="btn-order" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> اطلب الآن عبر الواتساب
+                </a>
             </div>
-        </div>
 
-        <!-- ================== سيرفر Tiger ================== -->
-        <div class="server-section">
-            <h2 class="server-title"><i class="fa-solid fa-cat"></i> سيرفر Tiger</h2>
-            <div class="plans-grid">
-                
-                <div class="plan-card">
-                    <div>
-                        <div class="duration">اشتراك 1 شهر</div>
-                        <div class="price">5,000 <span>د.ع</span></div>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> سيرفر قوي ومعروف عالمياً</li>
-                            <li><i class="fa-solid fa-check"></i> قنوات متنوعة بجودات مختلفة</li>
-                            <li><i class="fa-solid fa-check"></i> سريعة في التنقل بين القنوات</li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn-whatsapp" onclick="sendOrder('Tiger', '1 شهر', '5,000 د.ع')">
-                        <i class="fa-brands fa-whatsapp"></i> طلب الآن
-                    </a>
+            <!-- Plume4k Server -->
+            <div class="server-card">
+                <div class="server-header">
+                    <div class="server-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+                    <div class="server-title">سيرفر Plume4k</div>
                 </div>
-
-                <div class="plan-card">
-                    <div>
-                        <div class="duration">اشتراك 3 أشهر</div>
-                        <div class="price">10,000 <span>د.ع</span></div>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> سيرفر قوي ومعروف عالمياً</li>
-                            <li><i class="fa-solid fa-check"></i> قنوات متنوعة بجودات مختلفة</li>
-                            <li><i class="fa-solid fa-check"></i> سريعة في التنقل بين القنوات</li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn-whatsapp" onclick="sendOrder('Tiger', '3 أشهر', '10,000 د.ع')">
-                        <i class="fa-brands fa-whatsapp"></i> طلب الآن
-                    </a>
-                </div>
-
-                <div class="plan-card">
-                    <div>
-                        <div class="duration">اشتراك 6 أشهر</div>
-                        <div class="price">20,000 <span>د.ع</span></div>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> سيرفر قوي ومعروف عالمياً</li>
-                            <li><i class="fa-solid fa-check"></i> قنوات متنوعة بجودات مختلفة</li>
-                            <li><i class="fa-solid fa-check"></i> سريعة في التنقل بين القنوات</li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn-whatsapp" onclick="sendOrder('Tiger', '6 أشهر', '20,000 د.ع')">
-                        <i class="fa-brands fa-whatsapp"></i> طلب الآن
-                    </a>
-                </div>
-
+                <ul class="pricing-list">
+                    <li class="price-item">
+                        <span class="duration"><i class="fa-solid fa-clock"></i> 6 أشهر</span>
+                        <span class="price">10,000 د.ع</span>
+                    </li>
+                    <li class="price-item">
+                        <span class="duration"><i class="fa-solid fa-clock"></i> سنة كاملة</span>
+                        <span class="price">20,000 د.ع</span>
+                    </li>
+                </ul>
+                <a href="https://wa.me/+9647731354565?text=مرحباً،%20أريد%20الاشتراك%20في%20سيرفر%20Plume4k" class="btn-order" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> اطلب الآن عبر الواتساب
+                </a>
             </div>
+
         </div>
-
-        <!-- الفوتر -->
-        <footer>
-            <p>جميع الحقوق محفوظة &copy; Ayan Store - لخدمات IPTV</p>
-        </footer>
-
     </div>
 
-    <!-- زر واتساب عائم -->
-    <a href="https://wa.me/+9647731354565" class="floating-whatsapp" target="_blank" title="تواصل معنا عبر الواتساب">
+    <!-- Floating Contact Button -->
+    <a href="https://wa.me/+9647731354565" class="floating-whatsapp" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
+        <span>تواصل مع الدعم</span>
     </a>
 
-    <!-- سكربت تحويل الطلبات إلى الواتساب -->
-    <script>
-        // ضع رقم الواتساب الخاص بك هنا (مرفوقاً بالرمز الدولي بدون علامه +)
-        // مثال للعراق: 9647700000000
-        const whatsappNumber = "+9647731354565"; 
+    <!-- Footer -->
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; Ayan Store - موزع معتمد لبيع أكواد IPTV</p>
+    </footer>
 
-        function sendOrder(server, duration, price) {
-            const message = `مرحباً Ayan Store 👋%0Aأرغب في شراء اشتراك IPTV بالتفاصيل التالية:%0A%0A📌 *السيرفر:* ${server}%0A⏱️ *المدة:* ${duration}%0A💰 *السعر:* ${price}%0A%0Aيرجى تزويدي بطريقة الدفع وتفعيل الكود.`;
-            const url = `https://wa.me/${whatsappNumber}?text=${message}`;
-            window.open(url, '_blank');
-        }
-    </script>
 </body>
 </html>
